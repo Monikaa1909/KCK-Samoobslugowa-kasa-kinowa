@@ -420,7 +420,17 @@ public class Kasa {
         window.setWindowSizeOverride(new TerminalSize(100,25));
         window.setSoloWindow(true);
 
-        Component text = new Label("Kliknij ENTER aby rozpocząć");
+        Component logo = new Label("" +
+                "\n" +
+                "░█████╗░██╗███╗░░██╗███████╗███╗░░░███╗░█████╗░████████╗░█████╗░░██╗░░░░░░░██╗███╗░░██╗\n" +
+                "██╔══██╗██║████╗░██║██╔════╝████╗░████║██╔══██╗╚══██╔══╝██╔══██╗░██║░░██╗░░██║████╗░██║\n" +
+                "██║░░╚═╝██║██╔██╗██║█████╗░░██╔████╔██║███████║░░░██║░░░██║░░██║░╚██╗████╗██╔╝██╔██╗██║\n" +
+                "██║░░██╗██║██║╚████║██╔══╝░░██║╚██╔╝██║██╔══██║░░░██║░░░██║░░██║░░████╔═████║░██║╚████║\n" +
+                "╚█████╔╝██║██║░╚███║███████╗██║░╚═╝░██║██║░░██║░░░██║░░░╚█████╔╝░░╚██╔╝░╚██╔╝░██║░╚███║\n" +
+                "░╚════╝░╚═╝╚═╝░░╚══╝╚══════╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚══╝");
+        logo.setAlignment(Component.Alignment.CENTER);
+
+        Component text = new Label("Kliknij ENTER aby rozpocząc");
         text.setAlignment(Component.Alignment.CENTER);
 
         Button start_button = new Button("Start", new Action() {
@@ -430,12 +440,19 @@ public class Kasa {
         });
         start_button.setAlignment(Component.Alignment.CENTER);
 
-        TextComponent tc = new TextArea();
+        Component picture = new Label("");
+        picture.setAlignment(Alignment.BOTTOM_LEFT);
 
+        window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
+        window.addComponent(logo, LinearLayout.GROWS_HORIZONTALLY);
+        window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
+        window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
         window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
         window.addComponent(text, LinearLayout.GROWS_HORIZONTALLY);
         window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
         window.addComponent(start_button, LinearLayout.GROWS_HORIZONTALLY);
+//        window.addComponent(new EmptySpace(), LinearLayout.GROWS_HORIZONTALLY);
+//        window.addComponent(picture, LinearLayout.GROWS_HORIZONTALLY);
 
         guiScreen.getScreen().startScreen();
         guiScreen.showWindow(window);
